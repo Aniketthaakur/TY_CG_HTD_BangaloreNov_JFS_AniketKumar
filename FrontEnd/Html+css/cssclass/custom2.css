@@ -1,0 +1,77 @@
+.div1
+{
+
+    display: inline-block;
+    
+}
+*
+{
+    text-decoration: none;
+}
+img
+{
+    
+    box-shadow: 4px 5px 3px 3px red;
+    margin: 40px;
+    border-radius: 10px;
+
+}
+body{
+    background-image: url(./image/b.webp);
+    background-size: cover;
+}
+a{
+    padding: 5px;
+}
+#section
+{
+    margin-bottom: 10px;
+}
+.divi1
+{
+    float: left;
+}
+.divi2
+{
+    float: right;
+}
+table
+{
+    text-align: center;
+}
+#div3
+{
+    margin-left: 40%;
+    padding: 150px;
+}
+#h1
+{
+    text-align: center;
+    color: red;
+}
+#nav1
+{
+    text-align: center;
+}
+#form1
+{
+    text-align: center;
+    
+}
+#divi5
+{
+    margin:  10px;
+}
+img:hover
+{
+    border: 1px dotted red;
+    padding: 20px;
+    
+}
+ label
+{
+    margin-right: 120px;
+    text-align: left;
+ }
+
+

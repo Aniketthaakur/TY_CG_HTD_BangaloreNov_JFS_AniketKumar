@@ -1,0 +1,55 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: grey;
+    
+}
+#flipcart>div{
+    background: #ffff;
+    border: 1px solid #111;
+    margin: 10px;
+    padding: 10px;
+    height: 235px;
+    display: inline-block;
+    filter: grayscale(100%);
+}
+#flipcart>div{
+  filter: grayscale(0);
+}
+.div1{
+    width: 30%;
+    float: left;
+    background: url("../image/a.jpg") !important;
+    /*  background: red !important; /* /*!--use brwoser to my color forcefully-- */
+}
+.div2{
+    width: 30%;
+    float: left;
+    background: url("../image/b.jpg") !important;
+  /*    background: yellow !important; */
+}
+.div3{
+    width: 30%;
+    float: left;
+    background: url('../image/c.jpg') !important;
+   
+ /*   background: green !important;  */
+}
+#flipcart>div:hover p{
+  display: block;
+  color: white;
+  font-size: 20px;
+  transform: skew(360deg);
+  transition: all ease-in 1.8s;
+}
+#flipcart>div>p{
+  display: none;
+}
+#flipcart>div:hover{
+  filter: grayscale(0);
+  border-radius: 100%;
+  transform: rotate(360deg);
+  transition: ease-in-out all 1.8s;
+  height: 200px;
+  width: 200px;
+}

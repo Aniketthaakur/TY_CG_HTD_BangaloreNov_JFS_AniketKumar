@@ -1,0 +1,42 @@
+.left ul li
+{
+    float: left;
+    display: inline;
+    padding: 5px;
+}
+
+.right ul li {
+    display: inline-block;
+    float: right;
+    padding: 5px;
+}
+
+
+*
+{
+    text-decoration: none;
+}
+h2{
+    letter-spacing: 2px;
+    text-align: center;
+}
+h3{
+    word-spacing: 5px;
+    text-align: center;
+}
+.image a{
+    padding: 30px;
+    text-align: center;
+}
+img{
+padding: 10px;
+border-radius: 50%;
+}
+ form
+ {
+     border: 2px solid red;
+ }
+ .image
+ {
+     border: 2px solid black;
+ }
