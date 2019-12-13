@@ -64,7 +64,7 @@ public class App {
 
 					}
 					System.out.println("press 1 to call");
-					System.out.println("press 2 to call");
+					System.out.println("press 2 to end call");
 					
 					int b1=sc.nextInt();
 					System.out.println("Calling ....");
@@ -75,7 +75,7 @@ public class App {
 				case 2:
 
 					System.out.println("Write some message");
-					String msg=sc.nextLine();
+					String msg=sc.next();
 					System.out.println(msg);
 
 					System.out.println("Click 1 to sent message");
