@@ -27,7 +27,7 @@ public class UserInfo {
 	private String password;
 	@OneToMany(cascade=CascadeType.ALL,mappedBy="bean")
 	private List<ProductInfo> productbean;
-//	@OneToMany(cascade=CascadeType.ALL,mappedBy="bean")
-//	private List<OrderInfo> orderbean;
+	@OneToMany(cascade=CascadeType.ALL,mappedBy="bean")
+	private List<OrderInfo> orderbean;
 	
 }

@@ -33,7 +33,7 @@ public class ProductInfo {
 	@JsonIgnore 
 	@JoinColumn(name="user_id",referencedColumnName="id")
 	private UserInfo bean;
-//	@OneToMany(cascade=CascadeType.ALL,mappedBy="productbean")
-//	private List<OrderInfo> orderbean;
+	@OneToMany(cascade=CascadeType.ALL,mappedBy="productbean")
+	private List<OrderInfo> orderbean;
 	
 }

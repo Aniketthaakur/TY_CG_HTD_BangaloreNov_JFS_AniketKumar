@@ -21,13 +21,13 @@ public class OrderInfo {
 	@Column
 	@GeneratedValue
 	private int id;
-//	@ManyToOne(optional=false)
-//	@JsonIgnore 
-//	@JoinColumn(name="user_id",referencedColumnName="id")
-//	private UserInfo bean;
-//	@ManyToOne(optional=false)
-//	@JsonIgnore 
-//	@JoinColumn(name="user_id",referencedColumnName="id")
-//	private ProductInfo productbean;
+	@ManyToOne(optional=false)
+	@JsonIgnore 
+	@JoinColumn(name="user_id",referencedColumnName="id")
+	private UserInfo bean;
+	@ManyToOne(optional=false)
+
+	@JoinColumn(name="product_id",referencedColumnName="id")
+	private ProductInfo productbean;
 	
 }
