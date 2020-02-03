@@ -1,0 +1,88 @@
+<div class="jumbotron">
+    <div class="alert alert-success" *ngIf='success'>{{success}}</div>
+    <div class="alert alert-danger" *ngIf='failure'>{{failure}}</div>
+    <div class="col-md-4 offset-md-4 mt-4">
+    <div class="card">
+            <div class="card-header">
+                    <h2>Update Finance</h2>
+            </div>
+                    <div class="card-body">
+                            <form #updatedFinance='ngForm' (ngSubmit)='updatefinance(updatedFinance)'>
+                                    <div class="form-group">
+                                            <label for="loanType">Loan Type</label>
+                                            <input type="hidden" name="loanType" id="loanType" #loanType='ngModel'
+                                                    [(ngModel)]='loanType1' class="form-control">
+                                            <div class="validationText"
+                                                    *ngIf='(loanType.dirty || loanType.touched) && loanType.invalid'>
+                                                    <div *ngIf='loanType.errors.required'>
+                                                            *This field is mandatory
+                                                    </div>
+                                                    <div *ngIf='loanType.errors.pattern'>
+                                                            *Only numbers are allowed
+                                                    </div>
+                                            </div>
+    
+                                    </div>
+    
+                                    <div class="form-group">
+                                            <label for="loanTerm">Loan Term</label>
+                                            <input type="text" name="loanTerm" id="loanTerm" #loanTerm='ngModel'
+                                                    [(ngModel)]='loanTerm1' class="form-control" required
+                                                    placeholder="Enter  loanTerm" required
+                                                    placeholder="Enter Customer Name" >
+                                            <div class="text-danger"
+                                                    *ngIf='(loanTerm.dirty || loanTerm.touched) && loanTerm.invalid'>
+                                                    <div *ngIf='loanTerm.errors.required'>
+                                                            *This field is mandatory
+                                                    </div>
+                                                    <div *ngIf='loanTerm.errors.minlength'>
+                                                            *minimum 2 letters mandatory
+                                                    </div>
+                                                    <div *ngIf='loanTerm.errors.pattern'>
+                                                            *only alphabets are allowed
+                                                    </div>
+                                            </div>
+                                    </div>
+    
+    
+                                    <div class="form-group">
+                                            <label for="loanAmount">Loan Amount</label>
+                                            <input type="text" name="loanAmount" id="loanAmount" #loanAmount='ngModel'
+                                                    [(ngModel)]='loanAmount1' class="form-control" required
+                                                    placeholder="Enter loanAmount">
+                                            <div class="text-danger"
+                                                    *ngIf='(loanAmount.dirty || loanAmount.touched) && loanAmount.invalid'>
+                                                    <div *ngIf='loanAmount.errors.required'>
+                                                            *This field is mandatory
+                                                    </div>
+                                                    <div *ngIf='loanAmount.errors.minlength'>
+                                                            *minimum 2 letters mandatory
+                                                    </div>
+                                            </div>
+                                    </div>
+    
+                                    <div class="form-group">
+                                            <label for="interest">interest</label>
+                                            <input type="text" name="interest" id="interest" #interest='ngModel'
+                                                    [(ngModel)]='interest1' class="form-control" required
+                                                    placeholder="Enter interest">
+                                            <div class="text-danger"
+                                                    *ngIf='(interest.dirty || interest.touched) && interest.invalid'>
+                                                    <div *ngIf='interest.errors.required'>
+                                                            *This field is mandatory
+                                                    </div>
+                                                    <div *ngIf='interest.errors.minlength'>
+                                                            *minimum 2 letters mandatory
+                                                    </div>
+                                            </div>
+                                    </div>
+    
+                                   
+    
+                                    <button type="sumbit" [disabled]='updatedFinance.invalid' class="btn btn-outline-info">Update finance</button>
+    
+                            </form>
+                    </div>
+            </div>
+    </div>
+    </div>

@@ -1,0 +1,31 @@
+<div class="alert alert-danger" *ngIf='failure'>{{failure}}</div>
+<div class="alert alert-success" *ngIf='success'>{{success}}</div>
+<div class="background">
+<div class="container mt-3">
+    <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>Status Id</th>
+                <th>Application Id</th>
+                <th>status</th>
+                <th>loanType</th>
+                <th>Delete</th>
+                <th>Modify</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor= 'let status of statuses'>
+                <td>{{status.statusId}}</td>
+                <td>{{status.applicationId}}</td>
+                <td>{{status.status}}</td>
+                <td>{{status.loanType}}</td>
+
+                <td><button class="btn btn-outline-danger" 
+                    (click)='deleteStatus(status)'>Delete</button></td>
+                    <td><button class="btn btn-outline-primary"
+                        (click)='modifyStatus(status)'>Modify</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>

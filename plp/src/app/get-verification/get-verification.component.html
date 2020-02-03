@@ -1,0 +1,28 @@
+<div class="alert alert-danger" *ngIf='failure'>{{failure}}</div>
+<div class="alert alert-success" *ngIf='success'>{{success}}</div>
+<div class="background">
+<div class="container mt-3">
+    <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>Verification Id</th>
+                <th>Application Id</th>
+                <th>Interview Date</th>
+                <th>status</th>
+                <th>loanType</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor= 'let verification of verifications'>
+                <td>{{verification.verificationId}}</td>
+                <td>{{verification.applicationId}}</td>
+                <td>{{verification.interviewDate}}</td>
+                <td>{{verification.status}}</td>
+                <td>{{verification.loanType}}</td>
+
+                    </tr>
+        </tbody>
+    </table>
+</div>
+</div>

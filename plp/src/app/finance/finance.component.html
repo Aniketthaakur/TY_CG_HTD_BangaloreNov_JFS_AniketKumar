@@ -1,0 +1,68 @@
+
+<div class="jumbotron">
+    <div class="alert alert-success" *ngIf='success'>{{success}}</div>
+    <div class="alert alert-danger" *ngIf='failure'>{{failure}}</div>
+    <div class="container">
+        <div class="row" >
+            <form #AddedFinance='ngForm' (ngSubmit)='addFinance(AddedFinance)'>
+                <h2 style="font-family: cursive;">Finance Provider Details</h2>
+                <div class="form-group">
+                    <input type="text" name="loanType" id="loanType" #loanType='ngModel' ngModel class="form-control"
+                        required placeholder="Enter LoanType" pattern="^[a-zA-Z]+(?: [a-zA-Z]+)*$" minlength="2"
+                        maxlength="30">
+                    <div class="text-danger" *ngIf='(loanType.dirty || loanType.touched) && loanType.invalid'>
+                        <div *ngIf='loanType.errors.required'>
+                            *This field is mandatory
+                        </div>
+                        <div *ngIf='loanType.errors.minlength'>
+                            *minimum 2 letters mandatory
+                        </div>
+                        <div *ngIf='loanType.errors.pattern'>
+                            *only characters are allowed
+                        </div>
+                        <!-- <input type="text" style="font-family: cursive;" class="form-control" name="loanType" id="loanType" placeholder="Enter Loan Type *" required> -->
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" name="loanTerm" id="loanTerm" #loanTerm='ngModel' ngModel class="form-control"
+                    required placeholder="Enter loanTerm">
+                <div class="text-danger" *ngIf='(loanTerm.dirty || loanTerm.touched) && loanTerm.invalid'>
+                    <div *ngIf='loanTerm.errors.required'>
+                        *This field is mandatory
+                    </div>
+                   
+                    <!-- <input type="text" style="font-family: cursive;" class="form-control" name="loanType" id="loanType" placeholder="Enter Loan Type *" required> -->
+                </div>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" name="loanAmount" id="loanAmount" #loanAmount='ngModel' ngModel class="form-control"
+                        required placeholder="Enter loanAmount" >
+                    <div class="text-danger" *ngIf='(loanAmount.dirty || loanAmount.touched) && loanAmount.invalid'>
+                        <div *ngIf='loanAmount.errors.required'>
+                            *This field is mandatory
+                        </div>
+                      
+                        <!-- <input type="text" style="font-family: cursive;" class="form-control" name="loanType" id="loanType" placeholder="Enter Loan Type *" required> -->
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="interest" id="interest" #interest='ngModel' ngModel class="form-control"
+                        required placeholder="Enter interest" >
+                    <div class="text-danger" *ngIf='(interest.dirty || interest.touched) && interest.invalid'>
+                        <div *ngIf='interest.errors.required'>
+                            *This field is mandatory
+                        </div>
+                        
+                        <!-- <input type="text" style="font-family: cursive;" class="form-control" name="loanType" id="loanType" placeholder="Enter Loan Type *" required> -->
+                    </div>
+                </div>
+
+                <button  type="sumbit"
+                class="btn btn-info" [disabled]='AddedFinance.invalid' >Submit</button>
+             
+        <button type="reset" class="btn btn-dark btn-md" style="color: azure;"> <a routerLink="/viewfinance"> Show List</a></button> &nbsp;<br>
+            </form>
+        </div>
+    </div>

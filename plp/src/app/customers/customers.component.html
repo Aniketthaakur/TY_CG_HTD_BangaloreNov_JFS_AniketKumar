@@ -1,0 +1,232 @@
+<div class="jumbotron">
+<div class="alert alert-warning" *ngIf='message'>{{message}}
+
+</div>
+<div class="alert alert-primary" *ngIf='description'>{{description}}
+
+</div>
+<div class="card bg-info" style="width: 50rem; margin-top: 5%; opacity: initial; ">
+    <div class="card-header bg-warning " >
+     <h4 style="text-align: center; font-weight: bold; color: black; ">HOME LOAN APPLICATION FORM</h4> 
+    </div>
+    <div class="card-body">
+      <blockquote class="blockquote mb-0">
+        <form #AddCustomerForm='ngForm' (ngSubmit)='addCustomer(AddCustomerForm)'>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputEmail4"></label>
+                 <h6>Name</h6>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="customerName"></label>
+                  <input type="text" class="form-control" id="customerName" name="customerName" 
+                   #customerName = 'ngModel' ngModel  placeholder="Enter Your Name">
+                </div>
+              </div>
+          
+          
+        
+            <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputEmail4"></label>
+               <h6>Gender</h6>
+              </div>
+              
+                  <div class="form-group col-md-6">
+                    <label for="gender"></label>
+                <select  type =" gender" name="gender" id="gender" #gender='ngModel'ngModel 
+                class="form-control"  >
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select> 
+            
+                  
+            </div>
+            </div>
+              
+        
+
+
+
+
+     <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputEmail4"></label>
+               <h6>Email Address</h6>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="email"></label>
+                <input type="text" class="form-control" id="email" #email= 'ngModel'
+                name="email" ngModel placeholder="Email">
+              </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputEmail4"></label>
+                 <h6>Date-of-Birth</h6>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="dateOfBirth"></label>
+                  <input type="text" class="form-control" id="dateOfBirth" name="dateOfBirth"
+                  #dateOfBirth='ngModel' ngModel  placeholder="yyyy-MM-dd">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputEmail4"></label>
+                 <h6>Aadhar Number</h6>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="aadharNumber"></label>
+                  <input type="text" class="form-control" id="aadharNumber" name="aadharNumber" 
+                  #aadharNumber='ngModel' ngModel  placeholder="12 digits Aadhar number">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputEmail4"></label>
+                 <h6> Phone Number</h6>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="phoneNumber"></label>
+                  <input type="text" class="form-control" id="phoneNumber" 
+                   name="phoneNumber" #phoneNumber='ngModel' ngModel    placeholder="Phone">
+                </div>
+              </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputEmail4"></label>
+                 <h6> Address</h6>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="address"></label>
+                  <input type="text" name="address" class="form-control" id="address" 
+                  #address='ngModel' ngModel  placeholder="Enter your Address">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputEmail4"></label>
+                 <h6> Town</h6>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="town"></label>
+                  <input type="text" name="town" class="form-control" id="town"
+                  #town='ngModel' ngModel  placeholder="Town">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputEmail4"></label>
+                 <h6> State</h6>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="state"></label>     
+             <select class="custom-select my-1 mr-sm-2" id="state" name="state"
+             #state ='ngModel' ngModel >    
+             <option selected>State</option>
+                  <option value="karnataka">Karnataka</option>
+                  <option value="Andrapradesh">Andrapradesh</option>
+                  <option value="TamilNadu">TamilNadu</option>
+                  <option value="Chennai">Maharastra</option>
+                  <option value="Hyderabad">UP</option>
+                  <option value="Kerala">Kerala</option>
+                  <option value="Hyderabad">MP</option>
+                  <option value="Hyderabad">Bengal</option>
+                  <option value="Hyderabad">Rajasthan</option>
+                  <option value="Hyderabad">Bihar</option>
+                  <option value="Hyderabad">Jharkhand</option>
+                  <option value="Hyderabad">Punjab</option>
+                  <option value="Hyderabad">Haryana</option>
+                  <option value="Hyderabad">J&K</option>
+                  </select>
+                </div>
+                
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="pincode"></label>
+                 <h6>Pincode</h6>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="pincode"></label>
+                  <input type="text" class="form-control" id="pincode" name="pincode"
+                  #pincode='ngModel' ngModel  placeholder="Pincode">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputEmail4"></label>
+                 <h6>Occupation</h6>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="occupation"></label>
+                  <input type="text" class="form-control" id="occupation" name="occupation" 
+                  #occupation='ngModel' ngModel  placeholder="Occupation">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputEmail4"></label>
+                 <h6>Annual Income</h6>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="annualIncome"></label>
+                  <input type="text" class="form-control" id="annualIncome" name="annualIncome"
+                  #annualIncome='ngModel' ngModel  placeholder="Annual Income">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputEmail4"></label>
+                 <h6>Property Detials</h6>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="propertyDetails"></label>
+                  <input type="text" class="form-control" id="propertyDetails" name="propertyDetails"
+                  #propertyDetails='ngModel' ngModel placeholder="#homenumber, street address, town, city" >
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputEmail4"></label>
+                 <h6>Loan Type</h6>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="loanType"></label>
+                 
+                  <select class="custom-select my-1 mr-sm-2" id="loanType" name="loanType"
+                  #loanType='ngModel' ngModel  >    
+                    <option selected *ngIf=''></option>
+                         <option value="Home Purchase loan">New Home loan</option>
+                         <option value="Home Construction loan">Home Construction loan</option>
+                         <option value="Home improvement loan">Home improvement loan</option>
+                         <option value="Home improvement loan">Home Expansion loan</option>
+                         <option value="Home improvement loan">Home Land loan</option>
+                         
+                         </select>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputEmail4"></label>
+                 <h6>Nominee Name</h6>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="nominee"></label>
+                  <input type="text" class="form-control" id="nominee" name="nominee"
+                  #nominee='ngModel'  ngModel placeholder="Nominee name" >
+                </div>
+              </div>
+              
+            
+           
+            
+            <button type="submit" class="btn btn-warning float-right" >Apply</button>
+          </form>
+       
+      
+      </blockquote>
+    </div>
+  </div>
+</div>

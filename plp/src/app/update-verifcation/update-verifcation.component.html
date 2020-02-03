@@ -1,0 +1,42 @@
+<div class="jumbotron">
+    <div class="card" style="width: 45rem; margin-top: 1%;">
+        <div class="card-header bg-info">
+            <h4 style="text-align: center;">UPDATE VERIFICATION DETAILS</h4>
+        </div>
+        <div class="card-body">
+            <blockquote class="blockquote mb-0">
+    <form  #modifyVerificationForm='ngForm' (ngSubmit)='modifyVerification (modifyVerificationForm)'>
+          <div class="form-group col-md-6">
+            <label for="verificationId">Verification Id</label>
+            <input type="hidden" class="form-control" id="verificationId" name="verificationId"
+            #verificationId='ngModel' [(ngModel)]='verificationIds' ngModel class="form-control" required placeholder="Verification Id">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="applicationId">Application Id</label>
+            <input type="hidden" class="form-control" id="applicationId" name="applicationId" placeholder="Application Id"
+            #applicationId='ngModel' [(ngModel)]='applicationIds' ngModel class="form-control"  >
+          </div>
+        <div class="form-group col-md-6">
+          <label for="interviewDate">Date</label>
+          <input type="date" class="form-control" id="interviewDate" name="interviewDate" placeholder="Interview Date"
+           #interviewDate='ngModel' [(ngModel)]='interviewDates' ngModel class="form-control"  >
+        </div>
+        <div class="form-group col-md-6">
+                  <label for="status">Status</label>
+            <select class="custom-select custom-select-lg mb-3" id="status" name="status" placeholder="Status"
+            #status='ngModel' [(ngModel)]='statuses' ngModel class="form-control" >
+                <option value="Approaved" name= "approved" >Approaved</option> 
+                <option value="Rejected" name="rejected" >Rejected</option>
+              </select>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="loanType">Loan Type</label>
+            <input type="text" class="form-control" id="loanType" name="loanType"  placeholder="Loan Type"
+          #loanType='ngModel' [(ngModel)]='loanTypes' ngModel class="form-control"  >
+          </div>
+        <button type="submit" class="btn btn-primary float-right">Update</button>
+        </form>
+        </blockquote>
+    </div>
+    </div>
+    </div>

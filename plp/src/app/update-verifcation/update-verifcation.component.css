@@ -1,0 +1,22 @@
+form{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.card {
+    margin-left: 400px;
+    background-color: lightcyan;
+}
+label{
+    margin-left: 150px;
+}
+input{
+    margin-left: 150px;
+}
+select{
+    margin-left: 150px;
+
+}
+.jumbotron {
+    background-image: url("https://cdn.pixabay.com/photo/2019/04/12/12/52/euro-banknotes-4122079_960_720.jpg");
+    background-size: cover;
+}

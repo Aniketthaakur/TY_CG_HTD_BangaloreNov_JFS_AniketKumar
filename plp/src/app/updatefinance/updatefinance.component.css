@@ -1,0 +1,6 @@
+.jumbotron{
+    background-image: url("https://cdn.pixabay.com/photo/2015/01/28/22/20/bookkeeping-615384_960_720.jpg");
+    height:600px;
+    background-size: cover;
+    object-fit: cover;
+}

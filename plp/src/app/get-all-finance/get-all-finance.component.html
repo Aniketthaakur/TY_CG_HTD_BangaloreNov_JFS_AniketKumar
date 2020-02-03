@@ -1,0 +1,40 @@
+<div class="jumbotron">
+    <div class="alert alert-danger" *ngIf='failure'>{{failure}}</div>
+    <div class="d-flex align-items-center" *ngIf='!finance' >
+        <strong>Loading...</strong>
+        <div class="spinner-border ml-auto" role="status" aria-hidden="true" style="color: teal;"  ></div>
+      </div>
+      <div class="container mt-3">
+        <table class="table table-bordered table-hover"  >
+            <thead style="background: teal" >
+                <tr>
+                    <th>Loan Type</th>
+                    <th>Loan Term</th>
+                    <th>Loan Amount</th>
+                    <th>Loan Interest</th>
+                    <th>Modify</th>
+                    <th>Delete</th>
+                    
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let finance of finances'>
+                <td>{{finance.loanType}}</td>
+                <td>{{finance.loanTerm}}</td>
+                <td>{{finance.loanAmount}}</td>
+                <td>{{finance.interest}}</td>
+              
+
+                <td>
+                    
+                    <button class="btn btn-dark"  (click)='updatefinance(finance)'>Modify</button>
+                </td>
+
+                <td><button class="btn btn-danger" (click)='deleteFinance(finance)'>Delete</button>
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>

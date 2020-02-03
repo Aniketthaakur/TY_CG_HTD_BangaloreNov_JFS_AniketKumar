@@ -1,0 +1,6 @@
+.jumbotron{
+    background-image: url("https://cdn.pixabay.com/photo/2013/07/18/10/55/business-163464_960_720.jpg");
+    height:600px;
+    background-size: cover;
+    object-fit: cover;
+}

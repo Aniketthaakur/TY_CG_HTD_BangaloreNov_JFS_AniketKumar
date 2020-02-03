@@ -1,0 +1,14 @@
+.card{
+    float: left;
+    padding: 20px;
+    margin-left: 90px;
+    margin-right: 50px;
+    margin-top: 100px;
+}
+.background{
+    background-image: url('https://cdn.pixabay.com/photo/2019/12/30/17/57/seascape-4730202_960_720.jpg');
+}
+div{
+    background-image: url('https://cdn.pixabay.com/photo/2019/12/30/17/57/seascape-4730202_960_720.jpg');
+
+}

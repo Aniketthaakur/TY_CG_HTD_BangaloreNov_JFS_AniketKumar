@@ -1,0 +1,57 @@
+<h4 style="text-align: center; color: royalblue;">CUSTOMER DETAILS</h4>
+<form>
+<table class="table">
+    
+    <thead>
+      <tr>
+        <th scope="col">ApplicationId</th>
+        <th scope="col">Name</th>
+        <th scope="col">Gender</th>
+        <th scope="col">DOB</th>
+        <th scope="col">Aadhar</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Email</th>
+        <th scope="col">Address</th>
+        <th scope="col">Town</th>
+        <th scope="col">Pincode</th>
+        <th scope="col">State</th>
+        <th scope="col">Occupation</th>
+        <th scope="col">AnnualIncome</th>
+        <th scope="col">PropertyDetails</th>
+        <th scope="col">Nominee</th>
+        <th scope="col">LoanType</th>
+
+
+
+        
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor='let customers of customer;'>
+    
+            <td>{{customers.applicationId}}</td>
+            <td>{{customers.customerName}}</td>
+            <td>{{customers.gender}}</td>
+            <td>{{customers.dateOfBirth}}</td>
+            <td>{{customers.aadharNumber}}</td>
+            <td>{{customers.phoneNumber}}</td>
+            <td>{{customers.email}}</td>
+            <td>{{customers.address}}</td>
+            <td>{{customers.town}}</td>
+            <td>{{customers.pincode}}</td>
+            <td>{{customers.state}}</td>
+            <td>{{customers.occupation}}</td>
+            <td>{{customers.annualIncome}}</td>
+            <td>{{customers.propertyDetails}}</td>
+            <td>{{customers.nominee}}</td>
+            <td>{{customers.loanType}}</td>
+
+            
+            
+           
+        </tr>
+    
+    
+           </tbody>
+           </table>
+  </form>
