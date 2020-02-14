@@ -1,0 +1,46 @@
+<div class="col-md-9 col-lg-8 mx-auto mt">
+    <div class="alert alert-success" *ngIf='message'>{{message}}</div>
+    <div class="text-center display-3 text-dark">Add product</div>
+    <form #addProductForm='ngForm' (ngSubmit)='addProduct(addProductForm)'>
+        <div class="form-group">
+            <label for="pname">Product Name</label>
+            <input type="pname" name="pname" id="pname" class="form-control" #pname='ngModel'
+                ngModel required>
+        </div>
+        <div *ngIf='pname.invalid && pname.touched'>
+            <div class="alert alert-danger ml" *ngIf='pname.errors.required'>
+                *this field is mandatory
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="imageUrl">Image Url</label>
+            <input type="text" name="imageUrl" id="imageUrl" class="form-control"
+                #imageUrl='ngModel' ngModel pattern="https?://.+" title="Include http://"
+                required>
+        </div>
+        <div *ngIf='imageUrl.invalid && imageUrl.touched'>
+            <div class="alert alert-danger" *ngIf='imageUrl.errors.required'>
+                this field is mandatory
+            </div>
+            <div class="alert alert-danger" *ngIf='imageUrl.errors.pattern'>
+                Invalid url
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="pcost">Product Cost</label>
+            <input type="text" name="pcost" id="pcost" class="form-control" #pcost='ngModel'
+                ngModel required pattern="[0-9]{1}">
+        </div>
+        <div *ngIf='pcost.invalid && pcost.touched'>
+            <div class="alert alert-danger" *ngIf='pcost.errors.required'>
+                this field is mandatory
+            </div>
+            <div class="alert alert-danger" *ngIf='pcost.errors.pattern'>
+                invalid entry or amount is very less!
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary float-right">
+            Submit
+        </button>
+    </form>
+</div>

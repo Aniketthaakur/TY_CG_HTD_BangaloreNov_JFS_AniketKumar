@@ -1,0 +1,299 @@
+<div class="col-md-9 col-lg-8 mx-auto mt-4 card" *ngIf='navigator'>
+    <div class="alert alert-success" *ngIf='message'>{{message}}</div>
+    <div class="alert alert-danger" *ngIf='error'>{{error}}</div>
+<h3 class="login-heading mb-4">Sign In</h3>
+<form #loginForm='ngForm' (ngSubmit)='login(loginForm)'>
+    <div class="form-label-group">
+        <label for="email">Email address</label>
+        <input type="email" id="email" name="email" class="form-control" #email='ngModel'
+            ngModel placeholder="Email address" required
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+    </div>
+    <div *ngIf='email.touched && email.invalid'>
+        <div class="alert text-danger" *ngIf='email.errors.required'>
+            *This field is mandatory
+        </div>
+        <div class="alert text-danger" *ngIf='email.errors.minlength'>
+            Minimum 4 character are required
+        </div>
+        <div class="alert text-danger" *ngIf='email.errors.pattern'>
+            invalid email
+        </div>
+    </div>
+
+    <div class="form-label-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" #password='ngModel' ngModel
+            class="form-control" placeholder="Password" required
+            pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
+    </div>
+    <div *ngIf='password.invalid && password.touched'>
+        <div class="alert text-danger" *ngIf='password.errors.required'>
+            *this field is mandatory
+        </div>
+        <div class="alert alert-danger" *ngIf='password.errors.pattern'>
+            4 to 8 characters, should include one uppercase, one lowercase and one number
+        </div>
+    </div>
+    <button
+        class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2"
+        type="submit">Login</button>
+</form>
+<button
+    class="btn btn-lg btn-secondary btn-block btn-login text-uppercase font-weight-bold mb-2"
+    (click)='navigate()'>Sign up</button>
+</div>
+<div class="col-md-9 col-lg-8 mx-auto mt-3 card" *ngIf='custRegister'>
+    <div class="display-4 text-dark login-heading mb-2">Sign-up Here...</div>
+    <form #addCustomerForm='ngForm' (ngSubmit)='addCustomer(addCustomerForm)'>
+        <div class="form-group row">
+            <label for="cname" class="col-sm-4 col-form-label">Full Name</label>
+            <div class="col-sm-7">
+                <input type="text" name="cname" id="cname"
+                    class="form-control justify-content-between" #cname='ngModel' ngModel
+                    required pattern="[A-Za-z]">
+            </div>
+            <div *ngIf='cname.invalid && cname.touched'>
+                <div class="alert alert-danger ml" *ngIf='cname.errors.required'>
+                    this field is mandatory
+                </div>
+                <div class="alert text-danger" *ngIf='email.errors.minlength'>
+                    Minimum 4 character are required
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="telno" class="col-sm-4 col-form-label">Mobile</label>
+            <div class="col-sm-7">
+                <input type="text" name="telno" id="telno" class="form-control" #telno='ngModel'
+                    ngModel required pattern="[0-9]{10}">
+            </div>
+            <div *ngIf='telno.invalid && telno.touched'>
+                <div class="alert alert-danger ml" *ngIf='telno.errors.required'>
+                    this field is mandatory
+                </div>
+                <div class="alert alert-danger ml" *ngIf='telno.errors.pattern'>
+                    Mobile number should be of 10 digits
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="town" class="col-sm-4 col-form-label">Town</label>
+            <div class="col-sm-7">
+                <input type="text" name="town" id="town" class="form-control" #town='ngModel'
+                    ngModel>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="postcode" class="col-sm-4 col-form-label">Post Code</label>
+            <div class="col-sm-7">
+                <input type="text" name="postcode" id="postcode" class="form-control"
+                    #postcode='ngModel' ngModel pattern="[0-9]{6}">
+            </div>
+            <div *ngIf='postcode.invalid && postcode.touched'>
+                <div class="alert alert-danger ml" *ngIf='postcode.errors.pattern'>
+                    Pin code must be of 6 digit
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" class="form-control" #email='ngModel'
+                ngModel required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+        </div>
+        <div *ngIf='email.invalid && email.touched'>
+            <div class="alert alert-danger ml" *ngIf='email.errors.required'>
+                *this field is mandatory
+            </div>
+            <div class="alert alert-danger ml" *ngIf='email.errors.pattern'>
+                invalid email
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" class="form-control"
+                #password='ngModel' ngModel required
+                pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
+        </div>
+        <div *ngIf='password.invalid && password.touched'>
+            <div class="alert alert-danger" *ngIf='password.errors.required'>
+                this field is mandatory
+            </div>
+            <div class="alert alert-danger" *ngIf='password.errors.pattern'>
+                4 to 8 characters, should include one uppercase, one lowercase and one number
+            </div>
+        </div>
+        <button type="submit" class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2">
+            Submit
+        </button>
+        <button
+            class="btn btn-lg btn-secondary btn-block btn-login text-uppercase font-weight-bold mb-2"
+            (click)='loginNavigate()'>Sign in</button>
+    </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="container-fluid">
+        <div class="col-md-8 col-lg-6 bg-dark text-light" *ngIf='navigator'>
+            <div class="login d-flex align-items-center py-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-9 col-lg-8 mx-auto">
+                                <div class="alert alert-success" *ngIf='message'>{{message}}</div>
+                                <div class="alert alert-danger" *ngIf='error'>{{error}}</div>
+                            <h3 class="login-heading mb-4">Welcome back!</h3>
+                            <form #loginForm='ngForm' (ngSubmit)='login(loginForm)'>
+                                <div class="form-label-group">
+                                    <label for="email">Email address</label>
+                                    <input type="email" id="email" name="email" class="form-control" #email='ngModel'
+                                        ngModel placeholder="Email address" required
+                                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                                </div>
+                                <div *ngIf='email.touched && email.invalid'>
+                                    <div class="alert text-danger" *ngIf='email.errors.required'>
+                                        *This field is mandatory
+                                    </div>
+                                    <div class="alert text-danger" *ngIf='email.errors.minlength'>
+                                        Minimum 4 character are required
+                                    </div>
+                                    <div class="alert text-danger" *ngIf='email.errors.pattern'>
+                                        invalid email
+                                    </div>
+                                </div>
+
+                                <div class="form-label-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" id="password" name="password" #password='ngModel' ngModel
+                                        class="form-control" placeholder="Password" required
+                                        pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
+                                </div>
+                                <div *ngIf='password.invalid && password.touched'>
+                                    <div class="alert text-danger" *ngIf='password.errors.required'>
+                                        *this field is mandatory
+                                    </div>
+                                    <div class="alert alert-danger" *ngIf='password.errors.pattern'>
+                                        4 to 8 characters, should include one uppercase, one lowercase and one number
+                                    </div>
+                                </div>
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                    <label class="custom-control-label" for="customCheck1">Remember password</label>
+                                </div>
+                                <button
+                                    class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2"
+                                    type="submit">Sign in</button>
+                            </form>
+                            <button
+                                class="btn btn-lg btn-secondary btn-block btn-login text-uppercase font-weight-bold mb-2"
+                                (click)='navigate()'>Sign up</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8 col-lg-6 bg-dark text-light" *ngIf='custRegister'>
+            <div class="login d-flex align-items-center py-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-9 col-lg-8 mx-auto">
+                            <div class="display-4 text-light login-heading mb-2 mt-4">Sign-up Here...</div>
+                            <form #addCustomerForm='ngForm' (ngSubmit)='addCustomer(addCustomerForm)'>
+                                <div class="form-group row">
+                                    <label for="cname" class="col-sm-4 col-form-label">Full Name</label>
+                                    <div class="col-sm-7">
+                                        <input type="text" name="cname" id="cname"
+                                            class="form-control justify-content-between" #cname='ngModel' ngModel
+                                            required pattern="[A-Za-z]">
+                                    </div>
+                                    <div *ngIf='cname.invalid && cname.touched'>
+                                        <div class="alert alert-danger ml" *ngIf='cname.errors.required'>
+                                            this field is mandatory
+                                        </div>
+                                        <div class="alert text-danger" *ngIf='email.errors.minlength'>
+                                            Minimum 4 character are required
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="telno" class="col-sm-4 col-form-label">Mobile</label>
+                                    <div class="col-sm-7">
+                                        <input type="text" name="telno" id="telno" class="form-control" #telno='ngModel'
+                                            ngModel required pattern="[0-9]{10}">
+                                    </div>
+                                    <div *ngIf='telno.invalid && telno.touched'>
+                                        <div class="alert alert-danger ml" *ngIf='telno.errors.required'>
+                                            this field is mandatory
+                                        </div>
+                                        <div class="alert alert-danger ml" *ngIf='telno.errors.pattern'>
+                                            Mobile number should be of 10 digits
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="town" class="col-sm-4 col-form-label">Town</label>
+                                    <div class="col-sm-7">
+                                        <input type="text" name="town" id="town" class="form-control" #town='ngModel'
+                                            ngModel>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="postcode" class="col-sm-4 col-form-label">Post Code</label>
+                                    <div class="col-sm-7">
+                                        <input type="text" name="postcode" id="postcode" class="form-control"
+                                            #postcode='ngModel' ngModel pattern="[0-9]{6}">
+                                    </div>
+                                    <div *ngIf='postcode.invalid && postcode.touched'>
+                                        <div class="alert alert-danger ml" *ngIf='postcode.errors.pattern'>
+                                            Pin code must be of 6 digit
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" name="email" id="email" class="form-control" #email='ngModel'
+                                        ngModel required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                                </div>
+                                <div *ngIf='email.invalid && email.touched'>
+                                    <div class="alert alert-danger ml" *ngIf='email.errors.required'>
+                                        *this field is mandatory
+                                    </div>
+                                    <div class="alert alert-danger ml" *ngIf='email.errors.pattern'>
+                                        invalid email
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" name="password" id="password" class="form-control"
+                                        #password='ngModel' ngModel required
+                                        pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
+                                </div>
+                                <div *ngIf='password.invalid && password.touched'>
+                                    <div class="alert alert-danger" *ngIf='password.errors.required'>
+                                        this field is mandatory
+                                    </div>
+                                    <div class="alert alert-danger" *ngIf='password.errors.pattern'>
+                                        4 to 8 characters, should include one uppercase, one lowercase and one number
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2">
+                                    Submit
+                                </button>
+                                <button
+                                    class="btn btn-lg btn-secondary btn-block btn-login text-uppercase font-weight-bold mb-2"
+                                    (click)='loginNavigate()'>Sign in</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div> -->

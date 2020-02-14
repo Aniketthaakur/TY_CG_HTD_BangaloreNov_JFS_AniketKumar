@@ -1,0 +1,332 @@
+<div class="btn-group mt">
+    <button class="btn btn-lg btn-blick btn-secondary" (click)='viewProduct()'>
+        View All Products
+    </button>
+    <button class="btn btn-lg btn-blick btn-secondary" (click)='viewOrder()'>
+        View All Orders
+    </button>
+    <button class="btn btn-lg btn-blick btn-secondary" (click)='viewHaulier()'>
+        View all Hauliers
+    </button>
+    <button class="btn btn-lg btn-blick btn-secondary" (click)='viewCustomer()'>
+        View All Customers
+    </button>
+    <button class="btn btn-lg btn-blick btn-secondary" (click)='viewContractRequest()'>
+        View Contract Request
+    </button>
+</div>
+<div class="container" *ngIf='productButton'>
+    <div class="col-md-4 offset-4 mt-3 mb-3">
+        <input type="search" name="search" [(ngModel)]='search' class="form-control" placeholder="search here...">
+    </div>
+    <div class="alert alert-danger" *ngIf='message'>{{message}}
+        <div class="class btn btn-outline-primary" (click)='deleteMessage()'>
+            &times;
+        </div>
+    </div>
+    <div class="col-md-3 float-left" *ngFor='let product of products | filterProducts: search'>
+        <div class="card">
+            <div class="card-header bg-primary text-light">
+                {{product.pname | titlecase}}
+            </div>
+            <div class="card-body">
+                <img [src]="product.imageUrl" alt="product image" height="200px" width="100%">
+                <p>{{product.pcost | currency: 'INR'}}</p>
+                <p>Product ID -> {{product.prodid}}</p>
+            </div>
+            <div class="card-footer">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container" *ngIf='orderButton'>
+    <div class="alert alert-danger" *ngIf='message'>{{message}}
+        <div class="class btn btn-outline-primary" (click)='deleteMessage()'>
+            &times;
+        </div>
+    </div>
+    <div class="card card-cascade narrower">
+        <div
+            class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+
+            <h1 class="text-dark display-4 mt-4">Orders</h1>
+        </div>
+        <!--/Card image-->
+        <div class="px-4">
+            <div class="table-wrapper">
+                <!--Table-->
+                <table class="table table-hover mb-0">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Order ID</th>
+                            <th>Product Name</th>
+                            <th>Quantity</th>
+                            <th>Delivery Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor='let order of orders'>
+                            <td></td>
+                            <td>{{order.orderId}}</td>
+                            <td>{{order.pname}}</td>
+                            <td>{{order.quantity}}</td>
+                            <td>{{order.deliveryDate}}</td>
+                            <td>
+                                <div class="btn-group col-md-12">
+                                    <button class="btn btn-outline-danger" (click)='update(order)'>
+                                        Assign Delivery-date
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container" *ngIf='haulierButton'>
+    <div class="alert alert-danger" *ngIf='message'>{{message}}
+        <div class="class btn btn-outline-primary">
+            &times;
+        </div>
+    </div>
+    <div class="card card-cascade narrower">
+        <div
+            class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+
+            <h1 class="text-dark display-4 mt-4">Resitered haulier</h1>
+        </div>
+        <!--/Card image-->
+        <div class="px-4">
+            <div class="table-wrapper">
+                <!--Table-->
+                <table class="table table-hover mb-0">
+                    <!--Table head-->
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Haulier ID</th>
+                            <th>Name</th>
+                            <th>town</th>
+                            <th>Mobile</th>
+                            <th>PinCode</th>
+                            <th>Email</th>
+                        </tr>
+                    </thead>
+                    <!--Table head-->
+
+                    <!--Table body-->
+                    <tbody>
+                        <tr *ngFor='let haulier of hauliers'>
+                            <td></td>
+                            <td>{{haulier.haulid}}</td>
+                            <td>{{haulier.hname}}</td>
+                            <td>{{haulier.htown}}</td>
+                            <td>{{haulier.htelno}}</td>
+                            <td>{{haulier.hpostcode}}</td>
+                            <td>{{haulier.hemail}}</td>
+                            <td>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <!--Table body-->
+                </table>
+                <!--Table-->
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<div class="container" *ngIf='customerButton'>
+<div class="card card-cascade narrower">
+    <div
+        class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+
+        <h1 class="text-dark display-4 mt-4">Resitered Customer</h1>
+    </div>
+    <!--/Card image-->
+    <div class="px-4">
+        <div class="table-wrapper">
+            <!--Table-->
+            <table class="table table-hover mb-0">
+                <!--Table head-->
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Customer ID</th>
+                        <th>Name</th>
+                        <th>town</th>
+                        <th>Mobile</th>
+                        <th>Pin-Code</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <!--Table head-->
+
+                <!--Table body-->
+                <tbody>
+                    <tr *ngFor='let customer of customers'>
+                        <td></td>
+                        <td>{{customer.custid}}</td>
+                        <td>{{customer.cname}}</td>
+                        <td>{{customer.town}}</td>
+                        <td>{{customer.telno}}</td>
+                        <td>{{customer.postcode}}</td>
+                        <td>{{customer.email}}</td>
+                        <td>
+                        </td>
+                    </tr>
+                </tbody>
+                <!--Table body-->
+            </table>
+            <!--Table-->
+        </div>
+
+    </div>
+
+</div>
+</div>
+<div class="container" *ngIf='contractRequestButton'>
+    <div class="card card-cascade narrower">
+        <div
+            class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+
+            <h1 class="text-dark display-4 mt-4">Contracts</h1>
+        </div>
+        <!--/Card image-->
+        <div class="px-4">
+            <div class="table-wrapper">
+                <!--Table-->
+                <table class="table table-hover mb-0">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Request ID</th>
+                            <th>Product Name</th>
+                            <th>Quantity</th>
+                            <th>Duration(in months)</th>
+                            <th>Delivery Day</th>
+                            <th>Approval</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor='let contract of contracts'>
+                            <td></td>
+                            <td>{{contract.requestId}}</td>
+                            <td>{{contract.productName}}</td>
+                            <td>{{contract.quantiy}}</td>
+                            <td>{{contract.contractDuration}}</td>
+                            <td>{{contract.deliveryDay}}</td>
+                            <td>{{contract.approval}}</td>
+                            <td>
+                                <form #editForm='ngForm' (ngSubmit)='updateContractRequest(editForm, contract)' class="form-inline">
+                                    <input type="hidden" name="requestId" id="requestId" class="form-control"
+                                        #requestId='ngModel' [(ngModel)]='contract.requestId'>
+                                        <select name="approval" id="approval" class="form-control"
+                                            #approval='ngModel' ngModel required>
+                                            <option value="approved">approved</option>
+                                            <option value="pending">not approved</option>
+                                        </select>
+                                    <button type="submit" class="btn btn-primary">
+                                        Ok
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<div class="col-md-9 col-lg-8 mx-auto" *ngIf='addContractButton'>
+    <div class="alert alert-success" *ngIf='message'>{{message}}</div>
+    <div class="text-center display-3 text-dark">Add Contract</div>
+    <form #addContractForm='ngForm' (ngSubmit)='postContract(addContractForm)'>
+        <div class="form-group row">
+            <label for="customerId" class="col-sm-4 col-form-label">Customer Id</label>
+            <div class="col-sm-7">
+                <input type="text" name="customerId" id="customerId"
+                    class="form-control" #customerId='ngModel' ngModel
+                    required>
+            </div>
+            <div *ngIf='customerId.invalid && customerId.touched'>
+                <div class="alert alert-danger ml" *ngIf='customerId.errors.required'>
+                    this field is mandatory
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="haulierId" class="col-sm-4 col-form-label">Haulier Id</label>
+            <div class="col-sm-7">
+                <input type="text" name="haulierId" id="haulierId" class="form-control" #haulierId='ngModel'
+                    ngModel requied>
+                
+            </div>
+            <div *ngIf='haulierId.invalid && haulierId.touched'>
+                <div class="alert alert-danger ml" *ngIf='haulierId.errors.required'>
+                    this field is mandatory
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="orderId" class="col-sm-4 col-form-label">Order Id</label>
+            <div class="col-sm-7">
+                <input type="text" name="orderId" id="orderId" class="form-control" #orderId='ngModel'
+                    ngModel requied>
+                    
+                <div *ngIf='orderId.invalid && orderId.touched'>
+                    <div class="alert alert-danger ml" *ngIf='orderId.errors.required'>
+                        this field is mandatory
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="productId" class="col-sm-4 col-form-label">Product Id</label>
+            <div class="col-sm-7">
+                    <input type="text" name="productId" id="productId" class="form-control" #productId='ngModel'
+                    ngModel requied>
+                    
+                <div *ngIf='productId.invalid && productId.touched'>
+                <div class="alert alert-danger ml" *ngIf='productId.errors.required'>
+                    *This field is mandatory
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="quantity">Quantity(in unit)</label>
+            <input type="text" name="quantity" id="quantity" class="form-control" #quantity='ngModel'
+                ngModel required placeholder="Quantity">
+        </div>
+        <div *ngIf='quantity.invalid && quantity.touched'>
+            <div class="alert alert-danger ml" *ngIf='quantity.errors.required'>
+                *this field is mandatory
+            </div>
+        </div>
+        <div class="form-group">
+                <label for="deliveryDay">Delivey Day(for every week)</label>
+                <select name="deliveryDay" id="deliveryDay" class="form-control" #deliveryDay='ngModel' ngModel
+                    required>
+                    <option value="Sunday">Sunday</option>
+                    <option value="Monday">Monday</option>
+                    <option value="Tuesday">Tuesday</option>
+                    <option value="Wednesday">Wednesday</option>
+                    <option value="Thursday">Thursday</option>
+                    <option value="Friday">Friday</option>
+                    <option value="Saturday">Saturday</option>
+                </select>
+            </div>
+        <button type="submit" class="btn btn-primary float-right">
+            Submit
+        </button>
+    </form>
+</div>

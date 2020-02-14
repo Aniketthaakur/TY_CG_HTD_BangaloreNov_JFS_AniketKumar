@@ -1,0 +1,22 @@
+<div class="alert alert-success" *ngIf='message'>{{message}}</div>
+<div class="text-center display-4 text-secondary">Assign Delivery Date</div>
+<div class="col-md-4 offset-md-4 mt-4 card text-bold">
+    <form #editForm='ngForm' (ngSubmit)='updateOrder(editForm)'>
+                    <input type="hidden" name="orderId" id="orderId" class="form-control" #orderId='ngModel'
+                        [(ngModel)]='order.orderId'>
+        <div class="form-group">
+            <label for="deliveryDate">Delivery Date</label>
+            <input type="date" name="deliveryDate" id="deliveryDate" class="form-control" min="{{today | date: 'yyy-MM-dd'}}" #deliveryDate='ngModel' ngModel
+                required>
+        </div>
+        <div class="form-group">
+            <label for="quantiy">Quantity</label>
+            <input type="text" name="quantiy" id="quantiy" class="form-control" #quantiy='ngModel' ngModel
+                required>
+        </div>
+        <button type="submit" class="btn btn-primary float-right">
+            Go...
+        </button>
+    </form>
+
+</div>

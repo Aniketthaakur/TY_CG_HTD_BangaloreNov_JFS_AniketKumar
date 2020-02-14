@@ -1,0 +1,81 @@
+/* Made with love by Mutiullah Samim*/
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Numans');
+
+.container-fluid{
+height: 100%;
+align-content: center;
+}
+
+.card{
+height: 370px;
+margin-top: auto;
+margin-bottom: auto;
+width: 400px;
+background-color: rgba(10, 134, 206, 0.5) !important;
+}
+
+.card-header h3{
+color: white;
+}
+
+.input-group-prepend span{
+width: 50px;
+background-color: rgb(116, 109, 90);
+color: black;
+border:0 !important;
+}
+
+input:focus{
+outline: 0 0 0 0  !important;
+box-shadow: 0 0 0 0 !important;
+
+}
+
+.remember{
+color: white;
+}
+
+.remember input
+{
+width: 20px;
+height: 20px;
+margin-left: 15px;
+margin-right: 5px;
+}
+
+.login_btn{
+color: white;
+background-color: rgb(116, 109, 90);
+width: 100px;
+}
+
+.login_btn:hover{
+color: rgb(251, 250, 253);
+background-color: rgba(5, 81, 100, 0.781)
+}
+
+.links{
+color: white;
+}
+
+.links a{
+margin-left: 4px;
+}
+.mt-4{
+    margin-top: 10% !important;
+}
+.bg-image {
+    background-image: url('./green-leaf-1353938.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  .h-100 {
+    height: -webkit-fill-available !important;
+}
+input.ng-touched.ng-invalid{
+  border: 2px solid red;
+}
+input.ng-touched.ng-valid{
+  border: 1px solid green;
+}

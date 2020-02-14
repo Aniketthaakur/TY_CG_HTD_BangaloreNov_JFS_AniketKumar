@@ -1,0 +1,13 @@
+.bg-design{
+    background-color: rgba(13, 180, 35, 0.2) !important;
+}
+.h-100{
+    height: -webkit-fill-available !important;
+}
+h1{
+    margin-left: 160px;
+    font-family: 'Kavivanar';font-size: 70px;
+}
+.btn, .btn-primary, .btn-lg, .float-right{
+    margin-right: 480px;
+}

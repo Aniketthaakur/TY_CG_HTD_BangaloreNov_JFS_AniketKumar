@@ -1,0 +1,60 @@
+<div class="col-md-9 col-lg-8 mx-auto mt">
+    <div class="alert alert-success" *ngIf='message'>{{message}}</div>
+    <div class="text-center display-3 text-dark">Add Haulier</div>
+    <form #addHaulierForm='ngForm' (ngSubmit)='addHaulier(addHaulierForm)'>
+        <div class="form-group">
+            <label for="hname">Haulier Name</label>
+            <input type="hname" name="hname" id="hname" class="form-control" #hname='ngModel'
+                ngModel required>
+        </div>
+        <div *ngIf='hname.invalid && hname.touched'>
+            <div class="alert alert-danger" *ngIf='hname.errors.required'>
+                *this field is mandatory
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="htelno">Mobile</label>
+            <input type="text" name="htelno" id="htelno" class="form-control" #htelno='ngModel'
+                ngModel required pattern="[0-9]{10}">
+        </div>
+        <div *ngIf='htelno.invalid && htelno.touched'>
+            <div class="alert alert-danger ml" *ngIf='htelno.errors.required'>
+                this field is mandatory
+            </div>
+            <div class="alert alert-danger ml" *ngIf='htelno.errors.pattern'>
+                Mobile number should be of 10 digits
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="htown">town</label>
+            <input type="text" name="htown" id="htown" class="form-control" #htown='ngModel'
+                ngModel>
+        </div>
+        <div class="form-group">
+            <label for="hpostcode">Post Code</label>
+            <input type="text" name="hpostcode" id="hpostcode" class="form-control"
+                #hpostcode='ngModel' ngModel pattern="[0-9]{6}">
+        </div>
+        <div *ngIf='hpostcode.invalid && hpostcode.touched'>
+            <div class="alert alert-danger ml" *ngIf='hpostcode.errors.pattern'>
+                Pin code must be of 6 digit
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="hemail">Email</label>
+            <input type="text" name="hemail" id="hemail" class="form-control" #hemail='ngModel'
+                ngModel required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+        </div>
+        <div *ngIf='hemail.invalid && hemail.touched'>
+            <div class="alert alert-danger ml" *ngIf='hemail.errors.required'>
+                *this field is mandatory
+            </div>
+            <div class="alert alert-danger ml" *ngIf='hemail.errors.pattern'>
+                invalid email
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary float-right">
+            Submit
+        </button>
+    </form>
+</div>

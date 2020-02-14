@@ -1,0 +1,31 @@
+<div class="alert alert-success" *ngIf='message'>{{message}}</div>
+<div class="mt">
+<div class="text-center display-4 text-secondary">Request Contract</div>
+<div class="col-md-4 offset-md-4 mt-4 card tex-bold">
+    <form #editForm='ngForm' (ngSubmit)='addRequest(editForm)'>
+        <div class="form-group">
+            <input type="hidden" name="productName" id="productName" class="form-control" #productName='ngModel'
+                 required [(ngModel)]='contract.pname'>
+        </div>
+        <div class="form-group">
+            <label for="contractDuration">Contract Duration(in months)</label>
+            <input type="text" name="contractDuration" id="contractDuration" class="form-control" #contractDuration='ngModel' ngModel
+                 required>
+        </div>
+        <div class="form-group">
+            <label for="quantiy">Quantity</label>
+            <input type="text" name="quantiy" id="quantiy" class="form-control" #quantiy='ngModel' ngModel
+                required pattern="[0-9]{10}">
+        </div>
+        <div class="form-group">
+            <label for="deliveryDay">Delivey Day(for every week)</label>
+            <input type="text" name="deliveryDay" id="deliveryDay" class="form-control" #deliveryDay='ngModel' ngModel
+                required pattern="[0-9]{10}">
+        </div>
+        <button type="submit" class="btn btn-primary float-right">
+            Request Contract
+        </button>
+    </form>
+
+</div>
+</div>

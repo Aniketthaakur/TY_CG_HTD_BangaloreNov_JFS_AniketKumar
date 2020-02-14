@@ -1,0 +1,16 @@
+.login,
+.image {
+  min-height: 100vh;
+}
+.b-margin{
+    margin-top: 12%;
+}
+.display-4{
+  font-size: 2rem !important
+}
+.display-3{
+  font-size: 3rem !important
+}
+.ml{
+  margin-left: 10rem;
+}

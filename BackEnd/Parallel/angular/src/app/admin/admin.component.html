@@ -1,0 +1,251 @@
+
+<div class="container-fluid">
+    <div class="row no-gutter">
+        <div class=" col-md-4 col-lg-6 mt-4">
+                <div class="alert alert-success" *ngIf='message'>{{message}}</div>
+            <div>
+                <h1 class="display-4 b-margin">Customer Operations</h1>
+                <button class="btn btn-secondary btn-lg btn-block" (click)='add()'>Add-Customer</button>
+                <button class="btn btn-secondary btn-lg btn-block text-light" (click)='view()'>View-Customer</button>
+            </div>
+            <div class="mt-2">
+                <h1 class="display-4">Product Operations</h1>
+                <input type="submit" name="add" id="add" value="Add Product" (click)='insertProduct()'
+                    class="btn btn-secondary btn-lg btn-block text-light">
+                <button class="btn btn-secondary btn-lg btn-block text-light"
+                    (click)='viewProduct()'>View-Product</button>
+            </div>
+            <div class="mt-2">
+                <h1 class="display-4">Haulier Operations</h1>
+                <button class="btn btn-secondary btn-lg btn-block" (click)='insertHaulier()'>Add-Haulier</button>
+                <button class="btn btn-secondary btn-lg btn-block text-light"
+                    (click)='viewHaulier()'>View-Haulier</button>
+            </div>
+        </div>
+        <div class="col-md-8 col-lg-6 bg-secondary text-light" *ngIf='button'>
+            <div class="login d-flex align-items-center py-5">
+                <div class="container">
+                    <div class="row">
+                        <!-- <div class="col-md-9 col-lg-8 mx-auto">
+                            <div class="text-center display-3 text-dark">Add Customer</div>
+                            <form #addCustomerForm='ngForm' (ngSubmit)='addCustomer(addCustomerForm)'>
+                                <div class="form-group row">
+                                    <label for="cname" class="col-sm-4 col-form-label">Full Name</label>
+                                    <div class="col-sm-7">
+                                        <input type="text" name="cname" id="cname"
+                                            class="form-control justify-content-between" #cname='ngModel' ngModel
+                                            required pattern="[A-Za-z]">
+                                    </div>
+                                    <div *ngIf='cname.invalid && cname.touched'>
+                                        <div class="alert alert-danger ml" *ngIf='cname.errors.required'>
+                                            this field is mandatory
+                                        </div>
+                                        <div class="alert text-danger" *ngIf='email.errors.minlength'>
+                                            Minimum 4 character are required
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="telno" class="col-sm-4 col-form-label">Mobile</label>
+                                    <div class="col-sm-7">
+                                        <input type="text" name="telno" id="telno" class="form-control" #telno='ngModel'
+                                            ngModel required pattern="[0-9]{10}">
+                                    </div>
+                                    <div *ngIf='telno.invalid && telno.touched'>
+                                        <div class="alert alert-danger ml" *ngIf='telno.errors.required'>
+                                            this field is mandatory
+                                        </div>
+                                        <div class="alert alert-danger ml" *ngIf='telno.errors.pattern'>
+                                            Mobile number should be of 10 digits
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="town" class="col-sm-4 col-form-label">Town</label>
+                                    <div class="col-sm-7">
+                                        <input type="text" name="town" id="town" class="form-control" #town='ngModel'
+                                            ngModel>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="postcode" class="col-sm-4 col-form-label">Post Code</label>
+                                    <div class="col-sm-7">
+                                        <input type="text" name="postcode" id="postcode" class="form-control"
+                                            #postcode='ngModel' ngModel pattern="[0-9]{6}">
+                                    </div>
+                                    <div *ngIf='postcode.invalid && postcode.touched'>
+                                        <div class="alert alert-danger ml" *ngIf='postcode.errors.pattern'>
+                                            Pin code must be of 6 digit
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" name="email" id="email" class="form-control" #email='ngModel'
+                                        ngModel required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                                </div>
+                                <div *ngIf='email.invalid && email.touched'>
+                                    <div class="alert alert-danger ml" *ngIf='email.errors.required'>
+                                        *this field is mandatory
+                                    </div>
+                                    <div class="alert alert-danger ml" *ngIf='email.errors.pattern'>
+                                        invalid email
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" name="password" id="password" class="form-control"
+                                        #password='ngModel' ngModel required
+                                        pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
+                                </div>
+                                <div *ngIf='password.invalid && password.touched'>
+                                    <div class="alert alert-danger" *ngIf='password.errors.required'>
+                                        this field is mandatory
+                                    </div>
+                                    <div class="alert alert-danger" *ngIf='password.errors.pattern'>
+                                        4 to 8 characters, should include one uppercase, one lowercase and one number
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary float-right">
+                                    Submit
+                                </button>
+                            </form>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8 col-lg-6 bg-secondary text-light" *ngIf='insert'>
+            <div class="login d-flex align-items-center py-5">
+                <div class="container">
+                    <div class="row">
+                        <!-- <div class="col-md-9 col-lg-8 mx-auto">
+                            <div class="text-center display-3 text-dark">Add producct</div>
+                            <form #addProductForm='ngForm' (ngSubmit)='addProduct(addProductForm)'>
+                                <div class="form-group">
+                                    <label for="pname">Product Name</label>
+                                    <input type="pname" name="pname" id="pname" class="form-control" #pname='ngModel'
+                                        ngModel required>
+                                </div>
+                                <div *ngIf='pname.invalid && pname.touched'>
+                                    <div class="alert alert-danger ml" *ngIf='pname.errors.required'>
+                                        *this field is mandatory
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="imageUrl">Image Url</label>
+                                    <input type="text" name="imageUrl" id="imageUrl" class="form-control"
+                                        #imageUrl='ngModel' ngModel pattern="https?://.+" title="Include http://"
+                                        required>
+                                </div>
+                                <div *ngIf='imageUrl.invalid && imageUrl.touched'>
+                                    <div class="alert alert-danger" *ngIf='imageUrl.errors.required'>
+                                        this field is mandatory
+                                    </div>
+                                    <div class="alert alert-danger" *ngIf='imageUrl.errors.pattern'>
+                                        Invalid url
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="pcost">Product Cost</label>
+                                    <input type="text" name="pcost" id="pcost" class="form-control" #pcost='ngModel'
+                                        ngModel required pattern="[0-9]{1}">
+                                </div>
+                                <div *ngIf='pcost.invalid && pcost.touched'>
+                                    <div class="alert alert-danger" *ngIf='pcost.errors.required'>
+                                        this field is mandatory
+                                    </div>
+                                    <div class="alert alert-danger" *ngIf='pcost.errors.pattern'>
+                                        invalid entry or amount is very less!
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary float-right">
+                                    Submit
+                                </button>
+                            </form>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8 col-lg-6 bg-secondary text-light" *ngIf='work'>
+            <div class="login d-flex align-items-center py-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-9 col-lg-8 mx-auto">
+                            <div class="display-4"><span class="text-dark">Hello Admin!!!</span><br><br>Your work goes
+                                here...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8 col-lg-6 bg-secondary text-light" *ngIf='insertHaul'>
+            <div class="login d-flex align-items-center py-5">
+                <div class="container">
+                    <div class="row">
+                        <!-- <div class="col-md-9 col-lg-8 mx-auto">
+                            <div class="text-center display-3 text-dark">Add Haulier</div>
+                            <form #addHaulierForm='ngForm' (ngSubmit)='addHaulier(addHaulierForm)'>
+                                <div class="form-group">
+                                    <label for="hname">Haulier Name</label>
+                                    <input type="hname" name="hname" id="hname" class="form-control" #hname='ngModel'
+                                        ngModel required>
+                                </div>
+                                <div *ngIf='hname.invalid && hname.touched'>
+                                    <div class="alert alert-danger" *ngIf='hname.errors.required'>
+                                        *this field is mandatory
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="htelno">Mobile</label>
+                                    <input type="text" name="htelno" id="htelno" class="form-control" #htelno='ngModel'
+                                        ngModel required pattern="[0-9]{10}">
+                                </div>
+                                <div *ngIf='htelno.invalid && htelno.touched'>
+                                    <div class="alert alert-danger ml" *ngIf='htelno.errors.required'>
+                                        this field is mandatory
+                                    </div>
+                                    <div class="alert alert-danger ml" *ngIf='htelno.errors.pattern'>
+                                        Mobile number should be of 10 digits
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="htown">town</label>
+                                    <input type="text" name="htown" id="htown" class="form-control" #htown='ngModel'
+                                        ngModel>
+                                </div>
+                                <div class="form-group">
+                                    <label for="hpostcode">Post Code</label>
+                                    <input type="text" name="hpostcode" id="hpostcode" class="form-control"
+                                        #hpostcode='ngModel' ngModel pattern="[0-9]{6}">
+                                </div>
+                                <div *ngIf='hpostcode.invalid && hpostcode.touched'>
+                                    <div class="alert alert-danger ml" *ngIf='hpostcode.errors.pattern'>
+                                        Pin code must be of 6 digit
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="hemail">Email</label>
+                                    <input type="text" name="hemail" id="hemail" class="form-control" #hemail='ngModel'
+                                        ngModel required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                                </div>
+                                <div *ngIf='hemail.invalid && hemail.touched'>
+                                    <div class="alert alert-danger ml" *ngIf='hemail.errors.required'>
+                                        *this field is mandatory
+                                    </div>
+                                    <div class="alert alert-danger ml" *ngIf='hemail.errors.pattern'>
+                                        invalid email
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary float-right">
+                                    Submit
+                                </button>
+                            </form>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
